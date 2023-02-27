@@ -15,12 +15,12 @@ namespace RecipeBook.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly UserManager<RBUser> _userManager;
-        private readonly SignInManager<RBUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
         public IndexModel(
-            UserManager<RBUser> userManager,
-            SignInManager<RBUser> signInManager)
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

@@ -17,11 +17,11 @@ namespace RecipeBook.Areas.Identity.Pages.Account.Manage
 {
     public class DownloadPersonalDataModel : PageModel
     {
-        private readonly UserManager<RBUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<DownloadPersonalDataModel> _logger;
 
         public DownloadPersonalDataModel(
-            UserManager<RBUser> userManager,
+            UserManager<IdentityUser> userManager,
             ILogger<DownloadPersonalDataModel> logger)
         {
             _userManager = userManager;

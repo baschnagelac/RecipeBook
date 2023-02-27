@@ -24,17 +24,17 @@ namespace RecipeBook.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel
     {
-        private readonly SignInManager<RBUser> _signInManager;
-        private readonly UserManager<RBUser> _userManager;
-        private readonly IUserStore<RBUser> _userStore;
-        private readonly IUserEmailStore<RBUser> _emailStore;
+        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IUserStore<IdentityUser> _userStore;
+        private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
 
         public ExternalLoginModel(
-            SignInManager<RBUser> signInManager,
-            UserManager<RBUser> userManager,
-            IUserStore<RBUser> userStore,
+            SignInManager<IdentityUser> signInManager,
+            UserManager<IdentityUser> userManager,
+            IUserStore<IdentityUser> userStore,
             ILogger<ExternalLoginModel> logger,
             IEmailSender emailSender)
         {
@@ -202,7 +202,7 @@ namespace RecipeBook.Areas.Identity.Pages.Account
         {
             try
             {
-                return Activator.CreateInstance<RBUser>();
+                return Activator.CreateInstance<IdentityUser>();
             }
             catch
             {
@@ -212,13 +212,13 @@ namespace RecipeBook.Areas.Identity.Pages.Account
             }
         }
 
-        private IUserEmailStore<RBUser> GetEmailStore()
+        private IUserEmailStore<IdentityUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<RBUser>)_userStore;
+            return (IUserEmailStore<IdentityUser>)_userStore;
         }
     }
 }
