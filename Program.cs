@@ -18,14 +18,13 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<RBUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-
+builder.Services.AddControllersWithViews();
 
 //custom services
 
 builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IRecipeBookService, RecipeBookService>();
 
-builder.Services.AddMvc();
 
 var app = builder.Build();
 
