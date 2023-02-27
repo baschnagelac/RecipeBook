@@ -169,12 +169,18 @@ namespace RecipeBook.Areas.Identity.Pages.Account
         {
             try
             {
-                RBUser user = Activator.CreateInstance<RBUser>();
 
-                user.FirstName = Input.FirstName;
-                user.LastName = Input.LastName;
+                return new RBUser()
+                {
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName,
+                };
+                //RBUser user = Activator.CreateInstance<RBUser>();
 
-                return user;
+                //user.FirstName = Input.FirstName;
+                //user.LastName = Input.LastName;
+
+                //return user;
             }
             catch
             {
