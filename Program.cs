@@ -29,7 +29,7 @@ builder.Services.AddScoped<IRecipeBookService, RecipeBookService>();
 var app = builder.Build();
 
 var scope = app.Services.CreateScope();
-await DataUtility.ManageDataAsync(scope.ServiceProvider);
+await DataUtility.ManagerDataAsync(scope.ServiceProvider);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
